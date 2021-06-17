@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>prfinal</groupId>
-	<artifactId>dis2021</artifactId>
+	<groupId>prfinaldis</groupId>
+	<artifactId>prfinaldis20201</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dis2021</name>
+	<name>prfinaldis20201</name>
 
 	<prerequisites>
 		<maven>3</maven>
@@ -33,6 +33,9 @@
 
 	<dependencyManagement>
 		<dependencies>
+			
+			
+		
 			<dependency>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-bom</artifactId>
@@ -65,6 +68,12 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
+		</dependency>
+		
+		<dependency>
+			    <groupId>com.google.code.gson</groupId>
+			    <artifactId>gson</artifactId>
+			    <version>2.8.6</version>
 		</dependency>
 	</dependencies>
 
