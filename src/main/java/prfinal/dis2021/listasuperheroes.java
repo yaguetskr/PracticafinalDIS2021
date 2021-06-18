@@ -9,7 +9,7 @@ public class listasuperheroes {
 	
 	
 	
-	List<superheroe> lista;
+	ArrayList<superheroe> lista;
 	
 	
 	listasuperheroes() {
@@ -17,7 +17,7 @@ public class listasuperheroes {
 		lista=new ArrayList<superheroe>();
 	}
 
-	public List<superheroe> lista(){
+	public ArrayList<superheroe> lista(){
 		return this.lista;
 	}
 	

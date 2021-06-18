@@ -26,7 +26,7 @@ public class Habilidades {
 	}
 	@Override
 	public String toString() {
-		return"\n\t\t\t<Habilidades>\n\t\t\t\t<Tipo>" +this.tipo +"</Tipo>\n\t\\tt\t<Definicion>"+this.definicion+"</Definicion>\n\t\t\t</Habilidades>\n";
+		return"\n\t\t\t<Habilidades>\n\t\t\t\t<Tipo>" +this.tipo +"</Tipo>\n\t\t\t\t<Definicion>"+this.definicion+"</Definicion>\n\t\t\t</Habilidades>\n";
 	}
 	
 }
