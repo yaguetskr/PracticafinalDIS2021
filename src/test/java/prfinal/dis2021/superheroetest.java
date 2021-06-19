@@ -101,7 +101,7 @@ public class superheroetest {
 	@Test
 	public void testSetBats() {
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton");
-		ArrayList bats=new ArrayList<Batallas>();
+		ArrayList<Batallas> bats=new ArrayList<Batallas>();
 		bats.add(new Batallas("Madrid","21-1-2041","3-1-2000"));
 		superh.setBats(bats);
 		assertEquals(bats,superh.getBats());
