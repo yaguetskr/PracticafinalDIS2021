@@ -36,7 +36,7 @@ public class superheroetest {
 	public void testAddbatalla() {
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton");
 		superh.addbatalla(new Batallas("Madrid","21-1-2041","3-1-2000"));
-		assertEquals(new Batallas("Madrid","21-1-2041","3-1-2000"),superh.getBats().get(0));
+		assertEquals("Madrid",superh.getBats().get(0).getLugar());
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class superheroetest {
 	@Test
 	public void testGetSecretid() {
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton");
-		assertEquals("Superman",superh.getNombre());
+		assertEquals("Superman",superh.getSecretid());
 	}
 
 	@Test
@@ -95,7 +95,7 @@ public class superheroetest {
 	public void testGetBats() {
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton");
 		superh.addbatalla(new Batallas("Madrid","21-1-2041","3-1-2000"));
-		assertEquals(new Batallas("Madrid","21-1-2041","3-1-2000"),superh.getBats().get(0));
+		assertEquals("Madrid",superh.getBats().get(0).getLugar());
 	}
 
 	@Test
@@ -110,7 +110,7 @@ public class superheroetest {
 	@Test
 	public void testGetHabs() {
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton");
-		assertEquals(new Habilidades("magicos","fuego volador"),superh.getHabs());
+		assertEquals("magicos",superh.getHabs().getTipo());
 	}
 
 	@Test
@@ -118,7 +118,7 @@ public class superheroetest {
 		Habilidades habs=new Habilidades("magicos","fuego volador");
 		superheroe superh=new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("0","0"),"Krypton");
 		superh.setHabs(habs);
-		assertEquals(new Habilidades("magicos","fuego volador"),superh.getHabs());
+		assertEquals("magicos",superh.getHabs().getTipo());
 	}
 
 	@Test

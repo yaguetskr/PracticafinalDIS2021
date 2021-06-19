@@ -38,7 +38,7 @@ public class listasuperheroestest {
 		list.add(new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton"));
 		System.out.println(new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton"));
 		System.out.println( list.lista().get(0));
-		assertEquals(new superheroe("1","Hombre","Clarke Kent","Superman",new Habilidades("magicos","fuego volador"),"Krypton"),list.lista().get(0));
+		assertEquals("Clarke Kent",list.lista().get(0).getNombre());
 	}
 
 }
