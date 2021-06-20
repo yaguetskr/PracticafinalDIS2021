@@ -141,6 +141,7 @@ public class MyUI extends UI implements View{
     				pos=lista.indexOf(superh);
     	    		
     	    		gridbatallas.setVisible(true);
+    	    		cambiareditar.setVisible(true);
     			}
     			
     		}
@@ -241,6 +242,7 @@ public class MyUI extends UI implements View{
 	        	
 	            crearheroe.addComponent(new Label("Heroe añadido correctamente"));
 	            form1layout.setVisible(true);
+	            .setVisible(true);
         	}else {
         		crearheroe.addComponent(new Label("No puedes crear un heroe sin batallas"));
         	}
