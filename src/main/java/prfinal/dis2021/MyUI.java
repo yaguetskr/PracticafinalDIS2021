@@ -38,7 +38,9 @@ public class MyUI extends UI implements View{
 	
 	
 	
-	listasuperheroes lista=new listasuperheroes();
+	
+	
+	ArrayList<superheroe> lista=new ArrayList<superheroe>();
 	Gson gson = new Gson();
 	
 	
@@ -60,7 +62,7 @@ public class MyUI extends UI implements View{
     		
     		superheroe[] supers =gson.fromJson(readerjson, superheroe[].class);
 
-    		lista.lista.addAll(Arrays.asList(supers));
+    		lista.addAll(Arrays.asList(supers));
 
         } catch (IOException e) {
             
@@ -125,7 +127,7 @@ public class MyUI extends UI implements View{
     	buscar.addClickListener(e -> {
     		Integer encontrado=0;
         	superheroe superh=null;
-    		for(superheroe i : lista.lista) {
+    		for(superheroe i : lista) {
     			
     			if (i.getId().equals(idfield.getValue())) {
     				
@@ -136,7 +138,7 @@ public class MyUI extends UI implements View{
     				griddetalle.setVisible(true);
     				gridbatallas.setItems((superh.getBats()));
     				griddetalle.setVisible(true);
-    				pos=lista.lista.indexOf(superh);
+    				pos=lista.indexOf(superh);
     	    		
     	    		gridbatallas.setVisible(true);
     			}
@@ -160,7 +162,7 @@ public class MyUI extends UI implements View{
     	horizontal.addComponents(cambiarcrear);
     	horizontal2.addComponents(idfield,buscar,cambiareditar);
         layout.addComponents(horizontal,grid,horizontal2,griddetalle,gridbatallas);
-        grid.setItems(lista.lista());
+        grid.setItems(lista);
         setContent(layout);
     	
     	
@@ -224,7 +226,7 @@ public class MyUI extends UI implements View{
         crear.addClickListener(e -> {
         	
         	if(battles.isEmpty()==false) {
-        		String id=Integer.toString(lista.lista.size()+1);
+        		String id=Integer.toString(lista.size()+1);
 	        	superheroe sup=new superheroe(id,generofield.getValue(),namefield.getValue(),secretidfield.getValue(),new Habilidades(tipofield.getValue(),definicionfield.getValue() ) ,procedenciafield.getValue() );
 	        	sup.bats=battles;
 	        	lista.add(sup);
@@ -232,7 +234,7 @@ public class MyUI extends UI implements View{
 	        	
 	        	try (FileWriter writer = new FileWriter("heroes.json")) {
 	        		
-	                gson.toJson(lista.lista, writer);
+	                gson.toJson(lista, writer);
 	            } catch (IOException j) {
 	                j.printStackTrace();
 	            }
@@ -261,11 +263,11 @@ public class MyUI extends UI implements View{
     	grid.addColumn(Batallas::getFechafin).setCaption("Fin");
     	
         final TextField namefield = new TextField();
-        namefield.setValue( lista.lista.get(pos).getNombre() );
+        namefield.setValue( lista.get(pos).getNombre() );
         final TextField generofield = new TextField();
-        generofield.setValue( lista.lista.get(pos).getGenero() );
+        generofield.setValue( lista.get(pos).getGenero() );
         final TextField secretidfield = new TextField();
-        secretidfield.setValue( lista.lista.get(pos).getSecretid() );
+        secretidfield.setValue( lista.get(pos).getSecretid() );
         final TextField lugarfield = new TextField();
         
         final TextField fechacfield = new TextField();
@@ -273,11 +275,11 @@ public class MyUI extends UI implements View{
         final TextField fechafinfield = new TextField();
         
         final TextField procedenciafield = new TextField();
-        procedenciafield.setValue( lista.lista.get(pos).getProcedencia() );
+        procedenciafield.setValue( lista.get(pos).getProcedencia() );
         final TextField tipofield = new TextField();
-        tipofield.setValue( lista.lista.get(pos).getHabs().getTipo() );
+        tipofield.setValue( lista.get(pos).getHabs().getTipo() );
         final TextField definicionfield = new TextField();
-        definicionfield.setValue( lista.lista.get(pos).getHabs().getDefinicion() );
+        definicionfield.setValue( lista.get(pos).getHabs().getDefinicion() );
         
         Label  batallaslb = new Label ("Batallas en las que ha participado (al menos una) :");
         Label  datoslb = new Label ("Datos del heroe :");
@@ -313,16 +315,16 @@ public class MyUI extends UI implements View{
         });
         
         crear.addClickListener(e -> {
-        	String id=lista.lista.get(pos).getId();
+        	String id=lista.get(pos).getId();
         	superheroe sup=new superheroe(id,generofield.getValue(),namefield.getValue(),secretidfield.getValue(),new Habilidades(tipofield.getValue(),definicionfield.getValue() ) ,procedenciafield.getValue() );
         	sup.bats=battles;
 
-        	lista.lista.set(pos,sup);
+        	lista.set(pos,sup);
         	
         	
         	try (FileWriter writer = new FileWriter("heroes.json")) {
         		
-                gson.toJson(lista.lista, writer);
+                gson.toJson(lista, writer);
             } catch (IOException j) {
                 j.printStackTrace();
             }
